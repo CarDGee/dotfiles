@@ -38,7 +38,7 @@ keys = [
              ),
          Key(
              [mod, "shift"], "Return",
-             lazy.spawn("dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#282a36' -nf '#ffffff' -sb '#bd93f9' -sf '#282a36' -p 'dmenu:'"),
+             lazy.spawn("dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#000000' -nf '#ffffff' -sb '#cd1f3f' -sf '#000000' -p 'dmenu:'"),
              desc='Dmenu Run Launcher'
              ),
          Key(
@@ -52,7 +52,7 @@ keys = [
              desc='Kill active window'
              ),
          Key(
-             [mod, "shift"], "r",
+             [mod, "shift"], "q",
              lazy.restart(),
              desc='Restart Qtile'
              ),
@@ -61,6 +61,17 @@ keys = [
              lazy.shutdown(),
              desc='Shutdown Qtile'
              ),
+         # PowerOff Reboot 
+         Key(
+             [mod, "shift"], "r",
+             lazy.spawn("systemctl reboot"),
+             desc='reboot os'
+             ),
+         Key(
+             [mod, "shift"], "p",
+             lazy.spawn("systemctl poweroff"),
+             desc='shutdown'
+             ),              
          ### Treetab controls
          Key([mod, "control"], "k",
              lazy.layout.section_up(),
@@ -72,12 +83,12 @@ keys = [
              ),
          ### Window controls
          Key(
-             [mod], "k",
+             [mod], "Left",
              lazy.layout.down(),
              desc='Move focus down in current stack pane'
              ),
          Key(
-             [mod], "j",
+             [mod], "Right",
              lazy.layout.up(),
              desc='Move focus up in current stack pane'
              ),
@@ -190,8 +201,8 @@ keys = [
          ### Applications launched with SUPER + ALT + KEY
          Key(
              [mod, "mod1"], "a",
-             lazy.spawn(myTerm+" -e mpv 'https://radio.streemlion.com:2905/stream'"),
-             desc='launches artic outpost radio'
+             lazy.spawn("audacity"),
+             desc='launches audacity'
              ),
          Key(
              [mod, "mod1"], "b",
@@ -220,13 +231,18 @@ keys = [
              ),
          Key(
              [mod, "mod1"], "l",
-             lazy.spawn("flatpak run org.libreoffice.LibreOffice"),
-             desc='libreoffice'
+             lazy.spawn("lutris"),
+             desc='launches lutris'
+             ),
+         Key(
+             [mod, "mod1"], "m",
+             lazy.spawn("mixxx"),
+             desc='mixxx'
              ),
          Key(
              [mod, "mod1"], "n",
-             lazy.spawn(myTerm+" -e newsboat"),
-             desc='newsboat'
+             lazy.spawn("/opt/brave/brave --profile-directory=Default --app-id=cidgjglgikhmmkbadlkodpbmflhnlica"),
+             desc='my nextcloud page'
              ),
          Key(
              [mod, "mod1"], "o",
@@ -235,8 +251,8 @@ keys = [
              ),
          Key(
              [mod, "mod1"], "p",
-             lazy.spawn("pulseeffects"),
-             desc='launches pulseeffects'
+             lazy.spawn("pavucontrol"),
+             desc='launches pavucontrol'
              ),
          Key(
              [mod, "mod1"], "q",
@@ -245,13 +261,13 @@ keys = [
              ),
          Key(
              [mod, "mod1"], "r",
-             lazy.spawn("flatpak run im.riot.Riot"),
-             desc='launches riot'
+             lazy.spawn(myTerm+" -e mpv 'https://radio.streemlion.com:2905/stream'"),
+             desc='launches artic outpost radio'
              ),
          Key(
              [mod, "mod1"], "s",
-             lazy.spawn("flatpak run com.valvesoftware.Steam"),
-             desc='steam'
+             lazy.spawn("steam"),
+             desc='launches steam'
              ),
          Key(
              [mod, "mod1"], "z",
@@ -259,13 +275,42 @@ keys = [
              desc='zugaina webapp'
              ),
              
-         ### Flatpaks launched with SUPER + CONTROL + KEY
-         
+         ### Flatpaks & Appimage launched with SUPER + CONTROL + KEY
          Key(
-             [mod, "control"], "j",
-             lazy.spawn(myTerm+" -e joplin"),
-             desc='joplin'
+             [mod, "control"], "c",
+             lazy.spawn("/home/d4n13l/.bin/Chiaki-v1.2.1-Linux-x86_64.AppImage"),
+             desc='launch chiaki'
              ),
+         Key(
+             [mod, "control"], "d",
+             lazy.spawn("flatpak run com.github.maoschanz.drawing"),
+             desc='drawpile'
+             ),
+         Key(
+             [mod, "control"], "l",
+             lazy.spawn("flatpak run org.libreoffice.LibreOffice"),
+             desc='libreoffice'
+             ),
+         Key(
+             [mod, "control"], "m",
+             lazy.spawn("flatpak run org.mixxx.Mixxx"),
+             desc='mixxx'
+             ),
+         Key(
+             [mod, "control"], "o",
+             lazy.spawn("flatpak run com.obsproject.Studio"),
+             desc='obs studio'
+             ),
+         Key(
+             [mod, "control"], "r",
+             lazy.spawn("flatpak run org.libretro.RetroArch"),
+             desc='launches retroarch'
+             ),
+         Key(
+             [mod, "control"], "s",
+             lazy.spawn("flatpak run com.stremio.Stremio"),
+             desc='launches stremio'
+             ), 
          
          # INCREASE/DECREASE BRIGHTNESS
 		 Key(
@@ -316,9 +361,9 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 ##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
 layout_theme = {"border_width": 2,
-                "margin": 6,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
+                "margin": 4,
+                "border_focus": "cd1f3f",
+                "border_normal": "000000"
                 }
 
 ##### THE LAYOUTS #####
@@ -335,6 +380,7 @@ layouts = [
     layout.Max(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
     layout.Stack(num_stacks=2),
+    layout.Floating(**layout_theme),
     layout.TreeTab(
          font = "Ubuntu",
          fontsize = 10,
@@ -348,18 +394,23 @@ layouts = [
          padding_y = 5,
          section_top = 10,
          panel_width = 320
-         ),
-     layout.Floating(**layout_theme)
+         )
 ]
 
-##### COLORS #####
-colors = [["#282a36", "#282a36"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"]] # window name
+def init_colors():
+    return [["#000000", "#000000"], # color 0 Black
+            ["#282a36", "#282a36"], # color 1 Dark
+            ["#c0c5ce", "#c0c5ce"], # color 2 Light Grey
+            ["#fba922", "#fba922"], # color 3 orange
+            ["#3384d0", "#3384d0"], # color 4 Blue
+            ["#f3f4f5", "#f3f4f5"], # color 5 White
+            ["#cd1f3f", "#cd1f3f"], # color 6 Red
+            ["#62FF00", "#62FF00"], # color 7 Lime
+            ["#6790eb", "#6790eb"], # color 8 Blue
+            ["#a9a9a9", "#a9a9a9"]] # color 9 Grey
+
+
+colors = init_colors()
 
 ##### PROMPT #####
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -395,8 +446,8 @@ def init_widgets_list():
                         rounded = False,
                         highlight_color = colors[1],
                         highlight_method = "line",
-                        this_current_screen_border = colors[4],
-                        this_screen_border = colors [4],
+                        this_current_screen_border = colors[6],
+                        this_screen_border = colors [7],
                         other_current_screen_border = colors[0],
                         other_screen_border = colors[0],
                         foreground = colors[2],
@@ -407,12 +458,12 @@ def init_widgets_list():
                         font="Ubuntu Mono",
                         padding=10,
                         foreground = colors[3],
-                        background = colors[1]
+                        background = colors[0]
                         ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
-                        foreground = colors[4],
+                        foreground = colors[6],
                         background = colors[0]
                         ),         
                widget.CurrentLayout(
@@ -423,7 +474,7 @@ def init_widgets_list():
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
-                        foreground = colors[4],
+                        foreground = colors[6],
                         background = colors[0]
                         ),                  
               widget.WindowName(
@@ -433,8 +484,8 @@ def init_widgets_list():
                         ),
               widget.CPUGraph(
                         border_color = colors[0],
-                        fill_color = colors[4],
-                        graph_color = colors[4],
+                        fill_color = colors[2],
+                        graph_color = colors[6],
                         background=colors[0],
                         border_width = 1,
                         line_width = 1,
@@ -449,7 +500,7 @@ def init_widgets_list():
                         ),
                widget.TextBox(
                         text="",
-                        foreground=colors[4],
+                        foreground=colors[9],
                         background=colors[0],
                         padding = 0,
                         fontsize=14
@@ -468,7 +519,7 @@ def init_widgets_list():
                          background = colors[0]
                          ),
                widget.TextBox(
-                        text=" 🔊",
+                        text=" ",
                         foreground=colors[2],
                         background=colors[0],
                         padding = 0,
@@ -481,8 +532,8 @@ def init_widgets_list():
                         ),
               widget.TextBox(
                         font="Ubuntu Mono",
-                        text=" 🕒 ",
-                        foreground=colors[3],
+                        text="  ",
+                        foreground=colors[6],
                         background=colors[0],
                         padding = 0,
                         fontsize=16

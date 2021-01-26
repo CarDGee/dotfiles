@@ -64,12 +64,12 @@ keys = [
          # PowerOff Reboot 
          Key(
              [mod, "shift"], "r",
-             lazy.spawn("systemctl reboot"),
+             lazy.spawn("loginctl reboot"),
              desc='reboot os'
              ),
          Key(
              [mod, "shift"], "p",
-             lazy.spawn("systemctl poweroff"),
+             lazy.spawn("loginctl poweroff"),
              desc='shutdown'
              ),              
          ### Treetab controls
@@ -195,7 +195,7 @@ keys = [
              ),
          Key(
              [mod], "F10",
-             lazy.spawn("geany"),
+             lazy.spawn("firefox-bin -no-remote -P 3v1l6006l3"),
              desc='geany editor'
              ),                                                    
          ### Applications launched with SUPER + ALT + KEY
@@ -208,6 +208,11 @@ keys = [
              [mod, "mod1"], "b",
              lazy.spawn("blueman-manager"),
              desc='launches bluetooth manager'
+             ),
+         Key(
+             [mod, "mod1"], "d",
+             lazy.spawn("deluge"),
+             desc='launches deluge torrent client'
              ),
          Key(
              [mod, "mod1"], "e",
@@ -256,7 +261,7 @@ keys = [
              ),
          Key(
              [mod, "mod1"], "q",
-             lazy.spawn('geany -i /home/d4n13l/.config/qtile/config.py'),
+             lazy.spawn(myTerm+" -e vim '/home/d4n13l/.config/qtile/config.py'"),
              desc='qtile config file'
              ),
          Key(
@@ -269,6 +274,11 @@ keys = [
              lazy.spawn("steam"),
              desc='launches steam'
              ),
+         Key(
+             [mod, "mod1"], "t",
+             lazy.spawn("thunar"),
+             desc='launches thunar'
+             ),    
          Key(
              [mod, "mod1"], "z",
              lazy.spawn("/opt/brave/brave --profile-directory=Default --app-id=njeegidhkgpheoodgenaapfclailfhlp"),
@@ -283,8 +293,13 @@ keys = [
              ),
          Key(
              [mod, "control"], "d",
-             lazy.spawn("flatpak run com.github.maoschanz.drawing"),
-             desc='drawpile'
+             lazy.spawn("flatpak run com.discordapp.Discord"),
+             desc='discord'
+             ),
+         Key(
+             [mod, "control"], "f",
+             lazy.spawn("/opt/brave/brave --profile-directory=Default --app-id=hekmcnckjkppceoppfdblcfmladeldij"),
+             desc='flathub webapp'
              ),
          Key(
              [mod, "control"], "l",
@@ -292,9 +307,9 @@ keys = [
              desc='libreoffice'
              ),
          Key(
-             [mod, "control"], "m",
-             lazy.spawn("flatpak run org.mixxx.Mixxx"),
-             desc='mixxx'
+             [mod, "control"], "n",
+             lazy.spawn("flatpak run org.nicotine_plus.Nicotine"),
+             desc='NICOTINE++'
              ),
          Key(
              [mod, "control"], "o",
@@ -343,7 +358,7 @@ keys = [
 ]
 
 ##### GROUPS #####
-group_names = [("", {'layout': 'monadtall'}),
+group_names = [("", {'layout': 'bsp'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'max'}),
                ("", {'layout': 'monadtall'}),
@@ -368,14 +383,14 @@ layout_theme = {"border_width": 2,
 
 ##### THE LAYOUTS #####
 layouts = [
-    #layout.MonadWide(**layout_theme),
-    #layout.Bsp(**layout_theme),
-    #layout.Stack(stacks=2, **layout_theme),
-    #layout.Columns(**layout_theme),
-    #layout.RatioTile(**layout_theme),
-    #layout.VerticalTile(**layout_theme),
-    #layout.Matrix(**layout_theme),
-    #layout.Zoomy(**layout_theme),
+    layout.MonadWide(**layout_theme),
+    layout.Bsp(**layout_theme),
+    layout.Stack(stacks=2, **layout_theme),
+    layout.Columns(**layout_theme),
+    layout.RatioTile(**layout_theme),
+    layout.VerticalTile(**layout_theme),
+    layout.Matrix(**layout_theme),
+    layout.Zoomy(**layout_theme),
     layout.MonadTall(**layout_theme),
     layout.Max(**layout_theme),
     layout.Tile(shift_windows=True, **layout_theme),
@@ -398,7 +413,8 @@ layouts = [
 ]
 
 def init_colors():
-    return [["#000000", "#000000"], # color 0 Black
+    return [["#3e3e3e", "#3e3e3e"], # color 0 Black
+#            ["#000000", "#000000"], # color 0 Black
             ["#282a36", "#282a36"], # color 1 Dark
             ["#c0c5ce", "#c0c5ce"], # color 2 Light Grey
             ["#fba922", "#fba922"], # color 3 orange

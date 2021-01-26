@@ -1,0 +1,347 @@
+
+
+
+
+
+modkey = "Mod4"
+workspaces = []
+tags = ["", "", "", "", "", "", "", "", ""]
+
+[[keybind]]
+command = "Execute"
+value = "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#000000' -nf '#ffffff' -sb '#cd1f3f' -sf '#000000' -p 'dmenu:'"
+modifier = ["modkey"]
+key = "p"
+
+[[keybind]]
+command = "Execute"
+value = "alacritty"
+modifier = ["modkey", "Shift"]
+key = "Return"
+
+[[keybind]]
+command = "CloseWindow"
+modifier = ["modkey", "Shift"]
+key = "q"
+
+[[keybind]]
+command = "SoftReload"
+modifier = ["modkey", "Shift"]
+key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "pkill leftwm"
+modifier = ["modkey", "Shift"]
+key = "x"
+
+[[keybind]]
+command = "Execute"
+value = "slock"
+modifier = ["modkey", "Control"]
+key = "l"
+
+[[keybind]]
+command = "MoveToLastWorkspace"
+modifier = ["modkey", "Shift"]
+key = "w"
+
+[[keybind]]
+command = "SwapTags"
+modifier = ["modkey"]
+key = "w"
+
+[[keybind]]
+command = "MoveWindowUp"
+modifier = ["modkey", "Shift"]
+key = "Up"
+
+[[keybind]]
+command = "MoveWindowDown"
+modifier = ["modkey", "Shift"]
+key = "Down"
+
+[[keybind]]
+command = "MoveWindowTop"
+modifier = ["modkey"]
+key = "Return"
+
+[[keybind]]
+command = "FocusWindowUp"
+modifier = ["modkey"]
+key = "Up"
+
+[[keybind]]
+command = "FocusWindowDown"
+modifier = ["modkey"]
+key = "Down"
+
+[[keybind]]
+command = "NextLayout"
+modifier = ["modkey", "Control"]
+key = "Up"
+
+[[keybind]]
+command = "PreviousLayout"
+modifier = ["modkey", "Control"]
+key = "Down"
+
+[[keybind]]
+command = "FocusWorkspaceNext"
+modifier = ["modkey"]
+key = "Right"
+
+[[keybind]]
+command = "FocusWorkspacePrevious"
+modifier = ["modkey"]
+key = "Left"
+
+[[keybind]]
+command = "GotoTag"
+value = "1"
+modifier = ["modkey"]
+key = "1"
+
+[[keybind]]
+command = "GotoTag"
+value = "2"
+modifier = ["modkey"]
+key = "2"
+
+[[keybind]]
+command = "GotoTag"
+value = "3"
+modifier = ["modkey"]
+key = "3"
+
+[[keybind]]
+command = "GotoTag"
+value = "4"
+modifier = ["modkey"]
+key = "4"
+
+[[keybind]]
+command = "GotoTag"
+value = "5"
+modifier = ["modkey"]
+key = "5"
+
+[[keybind]]
+command = "GotoTag"
+value = "6"
+modifier = ["modkey"]
+key = "6"
+
+[[keybind]]
+command = "GotoTag"
+value = "7"
+modifier = ["modkey"]
+key = "7"
+
+[[keybind]]
+command = "GotoTag"
+value = "8"
+modifier = ["modkey"]
+key = "8"
+
+[[keybind]]
+command = "GotoTag"
+value = "9"
+modifier = ["modkey"]
+key = "9"
+
+[[keybind]]
+command = "MoveToTag"
+value = "1"
+modifier = ["modkey", "Shift"]
+key = "1"
+
+[[keybind]]
+command = "MoveToTag"
+value = "2"
+modifier = ["modkey", "Shift"]
+key = "2"
+
+[[keybind]]
+command = "MoveToTag"
+value = "3"
+modifier = ["modkey", "Shift"]
+key = "3"
+
+[[keybind]]
+command = "MoveToTag"
+value = "4"
+modifier = ["modkey", "Shift"]
+key = "4"
+
+[[keybind]]
+command = "MoveToTag"
+value = "5"
+modifier = ["modkey", "Shift"]
+key = "5"
+
+[[keybind]]
+command = "MoveToTag"
+value = "6"
+modifier = ["modkey", "Shift"]
+key = "6"
+
+[[keybind]]
+command = "MoveToTag"
+value = "7"
+modifier = ["modkey", "Shift"]
+key = "7"
+
+[[keybind]]
+command = "MoveToTag"
+value = "8"
+modifier = ["modkey", "Shift"]
+key = "8"
+
+[[keybind]]
+command = "MoveToTag"
+value = "9"
+modifier = ["modkey", "Shift"]
+key = "9"
+
+################################################
+##### Applications launched with SUPER + F #####
+################################################
+[[keybind]]
+command = "Execute"
+value = "spacefm"
+modifier = ["modkey"]
+key = "F1"
+
+[[keybind]]
+command = "Execute"
+value = "firefox-bin"
+modifier = ["modkey"]
+key = "F2"
+
+[[keybind]]
+command = "Execute"
+value = "brave-bin"
+modifier = ["modkey"]
+key = "F3"
+
+[[keybind]]
+command = "Execute"
+value = "thunderbird-bin"
+modifier = ["modkey"]
+key = "F4"
+
+[[keybind]]
+command = "Execute"
+value = "lxappearance"
+modifier = ["modkey"]
+key = "F5"
+
+[[keybind]]
+command = "Execute"
+value = "gimp"
+modifier = ["modkey"]
+key = "F6"
+
+[[keybind]]
+command = "Execute"
+value = "virt-manager"
+modifier = ["modkey"]
+key = "F7"
+
+[[keybind]]
+command = "Execute"
+value = "/opt/piavpn/bin/pia-client"
+modifier = ["modkey"]
+key = "F8"
+
+[[keybind]]
+command = "Execute"
+value = "firefox-bin -no-remote -P Incognito"
+modifier = ["modkey"]
+key = "F9"
+
+[[keybind]]
+command = "Execute"
+value = "firefox-bin -no-remote -P 3v1l6006l3"
+modifier = ["modkey"]
+key = "F10"
+
+
+######################################################
+#### Applications launched with SUPER + ALT + KEY ####
+######################################################
+
+[[keybind]]
+command = "Execute"
+value = "audacity"
+modifier = ["modkey", "Alt"]
+key = "a"
+
+[[keybind]]
+command = "Execute"
+value = "blueman-manager"
+modifier = ["modkey", "Alt"]
+key = "b"
+
+[[keybind]]
+command = "Execute"
+value = "/opt/brave/brave --profile-directory=Default --app-id=celnaknmndcdcjcagffhbhciignkeokb"
+modifier = ["modkey", "Alt"]
+key = "f"
+
+[[keybind]]
+command = "Execute"
+value = "lutris"
+modifier = ["modkey", "Alt"]
+key = "l"
+
+[[keybind]]
+command = "Execute"
+value = "alacritty -e mpv 'https://radio.streemlion.com:2905/stream'"
+modifier = ["modkey", "Alt"]
+key = "r"
+
+[[keybind]]
+command = "Execute"
+value = "steam"
+modifier = ["modkey", "Alt"]
+key = "s"
+
+[[keybind]]
+command = "Execute"
+value = "/opt/brave/brave --profile-directory=Default --app-id=lhfjalfjmiijpikmhlcbiakabacpnagh"
+modifier = ["modkey", "Alt"]
+key = "z"
+
+##################
+#### Power options ####
+##################
+
+[[keybind]]
+command = "Execute"
+value = "loginctl poweroff"
+modifier = ["modkey", "Control"]
+key = "p"
+
+[[keybind]]
+command = "Execute"
+value = "loginctl reboot"
+modifier = ["modkey", "Control"]
+key = "r"
+
+##############
+####  Flatpak  ####
+##############
+
+[[keybind]]
+command = "Execute"
+value = "flatpak run com.discordapp.Discord"
+modifier = ["modkey", "Control"]
+key = "d"
+
+[[keybind]]
+command = "Execute"
+value = "flatpak run org.libreoffice.LibreOffice"
+modifier = ["modkey", "Control"]
+key = "l"

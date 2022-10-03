@@ -1,0 +1,80 @@
+packloadall
+
+""colorscheme
+"colorscheme vim-monokai-tasty
+
+let g:everforest_background = 'hard'
+colorscheme everforest
+        if has('termguicolors')
+          set termguicolors
+        endif
+        set background=dark
+
+""packages
+packadd NERDTree
+packadd vim-startify
+
+"NERDTree
+"autocmd VimEnter * NERDTree | wincmd p
+let NERDTreeShowHidden=1
+nmap <F2> :NERDTreeToggle<CR>
+
+"vim-startify
+let g:startify_custom_header = [
+  \ ' ▄████▄   ▄▄▄       ██▀███  ▓█████▄   ▄████ ▓█████ ▓█████ ',
+  \ '▒██▀ ▀█  ▒████▄    ▓██ ▒ ██▒▒██▀ ██▌ ██▒ ▀█▒▓█   ▀ ▓█   ▀ ',
+  \ '▒▓█    ▄ ▒██  ▀█▄  ▓██ ░▄█ ▒░██   █▌▒██░▄▄▄░▒███   ▒███   ',
+  \ '▒▓▓▄ ▄██▒░██▄▄▄▄██ ▒██▀▀█▄  ░▓█▄   ▌░▓█  ██▓▒▓█  ▄ ▒▓█  ▄ ',
+  \ '▒ ▓███▀ ░ ▓█   ▓██▒░██▓ ▒██▒░▒████▓ ░▒▓███▀▒░▒████▒░▒████▒',
+  \ '░ ░▒ ▒  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░ ▒▒▓  ▒  ░▒   ▒ ░░ ▒░ ░░░ ▒░ ░',
+  \ '  ░  ▒     ▒   ▒▒ ░  ░▒ ░ ▒░ ░ ▒  ▒   ░   ░  ░ ░  ░ ░ ░  ░',
+  \ '░          ░   ▒     ░░   ░  ░ ░  ░ ░ ░   ░    ░      ░   ',
+  \ '░ ░            ░  ░   ░        ░          ░    ░  ░   ░  ░',
+  \ '░                            ░                            ',
+  \]
+
+
+
+
+""""""""""
+""cursor""
+""""""""""
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+set mouse=a
+
+""""""""""""""
+"""settings"""
+""""""""""""""
+let g:rehash256 = 1
+set autoindent
+set autoread
+set clipboard=unnamedplus
+set cmdheight=1
+set expandtab
+set foldmethod=manual
+set ic
+set incsearch
+set lazyredraw
+set smartcase
+set nobackup
+set noswapfile
+set number
+set path+=**
+set shiftwidth=4
+set smartcase
+set t_vb=
+set tabstop=4
+set tm=500
+set wildmenu
+syntax on
+
+"set hidden                      " Needed to keep multiple buffers open
+"set t_Co=256                    " Set if term supports 256 colors.
+"set number relativenumber       " Display line numbers
+"syntax enable
+
+""""""""""""
+""--Doas--""
+""""""""""""
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!

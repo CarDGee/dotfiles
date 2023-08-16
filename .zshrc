@@ -113,7 +113,7 @@ alias depclean='doas pacman -Rsn $(pacman -Qdtq)'
 alias fixpacman="doas rm /var/lib/pacman/db.lck"
 alias install='doas pacman -Sy $1'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-alias tufupdate='repo-add /home/d4n13l/GitHub/tuf/tuf.db.tar.zst /home/d4n13l/GitHub/tuf/tuf*.pkg.tar.zst'
+alias tufupdate='repo-add /home/d4n13l/GitHub/tuf/tuf.db.tar.zst /home/d4n13l/GitHub/tuf/*.pkg.tar.zst'
 
 ##systemd
 alias jctl="journalctl -p 3 -xb"
